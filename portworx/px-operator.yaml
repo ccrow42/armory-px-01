@@ -1,4 +1,4 @@
-#  SOURCE: https://install.portworx.com/?comp=pxoperator&kbver=1.25.13&ns=portworx
+#SOURCE: https://install.portworx.com/?comp=pxoperator&kbver=1.25.13&ns=portworx
 apiVersion: v1
 kind: Namespace
 metadata:

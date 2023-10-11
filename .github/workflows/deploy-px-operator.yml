@@ -1,4 +1,4 @@
-name: Deploy Portworx
+name: Deploy px-operator
 
 on:
   push:

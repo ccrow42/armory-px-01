@@ -15,8 +15,6 @@ targets:
 manifests:
   - path: portworx/px-operator.yaml
     targets: ['prod-portworx','stage-portworx']
-  - path: portworx/px-namespace.yaml
-    targets: ['prod-portworx','stage-portworx']
   
 strategies:
   rolling:
@@ -35,16 +33,3 @@ analysis:  # Canary analysis queries and thresholds
         sum(kube_pod_annotations{job="kube-state-metrics",annotation_deploy_armory_io_replica_set_name="{{armory.replicaSetName}}"})
         by (annotation_app, pod)) by (annotation_app) OR on() vector(0)
         
-webhooks:
-  - agentIdentifier: cluster01
-    bodyTemplate:
-      inline: |-
-        { "cmd": "kubectl",
-          "arg": "delete ns {{armory.namespace}} --ignore-not-found=true -o name",
-          "callbackURL": "{{armory.callbackUri}}/callback"
-         }
-    method: POST
-    name: Delete namespace
-    networkMode: remoteNetworkAgent
-    retryCount: 3
-    uriTemplate: http://cmd-hook.armory-rna:8081/cmd
