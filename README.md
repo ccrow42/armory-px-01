@@ -22,9 +22,9 @@ Note that I have already created this policy and assigned it to the cluster usin
 
 ### Deploy EKS clusters
 
-`eksctl create cluster --kubeconfig ~/git/newstack/labv2/esk01 -f setup/uswest2-eks01-prod.yaml`
+`eksctl create cluster --kubeconfig ~/git/newstack/labv2/config/eks01 -f setup/uswest2-eks01-prod.yaml`
 
-`eksctl create cluster --kubeconfig ~/git/newstack/labv2/esk02 -f setup/uswest2-eks02-stage.yaml`
+`eksctl create cluster --kubeconfig ~/git/newstack/labv2/config/eks02 -f setup/uswest2-eks02-stage.yaml`
 
 Install the Armory Agents
 
@@ -46,4 +46,31 @@ Install the agents using the demo01 tenant to the demo01 environments.
 
 ### Populate Armory Secrets in Github
 
-Generate a new set of client credentials
+Generate a new set of client credentials in armory and populate the client and secret IDs in the following environment variables
+
+`CDAAS_CLIENT_ID`
+`CDAAS_CLIENT_SECRET`
+
+### Populate Github Secrets in Armory
+Create a new github token that has access to repos, workflows and packages. Populate that as an armory secret called:
+
+`Github_token`
+
+Sorry for the errant capital letter, too late to change it now!
+
+### Deploy the Armory Utilities
+
+This can be done by modifying anything inside the utilities directory, or you can simply deploy the manifests manually as specified in the utilities.yaml deployment file in the root of the repo
+
+
+### Deploy PX-operator and portworx
+
+I have had the best result deploying the operator manually with:
+
+`kubectl apply -f portworx/px-operator.yaml`
+
+Be sure to run the above on both clusters.
+
+Deploying Portworx can be done by modifying the storagecluster01.yaml (this will deploy to both clusters)
+
+You can manually deploy by applying the appropriate manifest to the appropriate cluster.
