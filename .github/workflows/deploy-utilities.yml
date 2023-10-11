@@ -2,8 +2,8 @@ name: Deploy Demo Utilities
 
 on:
   push:
-    branches:
-      - main
+    push:
+      branches: [ "main" ]
     paths:
       - 'utilities/*' # Replace with the path to the file or directory you want to monitor
 jobs:
