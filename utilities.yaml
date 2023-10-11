@@ -3,6 +3,14 @@ kind: kubernetes
 application: demo-utilities
 
 targets:
+  prod-portworx:
+    account: cluster01
+    namespace: portworx
+    strategy: rolling
+  stage-portworx:
+    account: cluster01
+    namespace: portworx
+    strategy: rolling
   prod-cmd-hook:
     account: cluster01
     namespace: armory-rna
@@ -37,7 +45,9 @@ manifests:
   - path: utilities/prometheus.yml
     targets: ['prod-prometheus']
   - path: utilities/px-operator.yaml
-    targets: ['prod-cmd-hook','stage-cmd-hook']
+    targets: ['prod-portworx','stage-portworx']
+  - path: utilities/px-namespace.yaml
+    targets: ['prod-portworx','stage-portworx']
   
 strategies:
   rolling:
