@@ -30,6 +30,7 @@ Install the Armory Agents
 
 NOTE: in order to avoid modifying config files, it is important that agents are install within tenants. There is a demo1 and demo2 tenant environment in armory. The source (prod) cluster is called cluster01 and the destination (stage) cluster is called cluster02
 
+
 ### Generate Keys
 
 Generate credential for the CLI by creating a new Client Credential in the Armory portal under the demo1 tenant. Create a new alias in your .bashrc file using the form:
@@ -74,6 +75,10 @@ Be sure to run the above on both clusters.
 Deploying Portworx can be done by modifying the storagecluster01.yaml (this will deploy to both clusters)
 
 You can manually deploy by applying the appropriate manifest to the appropriate cluster.
+
+### Change the default storage class
+
+
 
 ### Build service accounts
 

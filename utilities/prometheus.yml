@@ -456,6 +456,7 @@ spec:
   resources:
     requests:
       storage: "2Gi"
+  storageClass: px-db
 ---
 # Source: prometheus/templates/server/pvc.yaml
 apiVersion: v1
@@ -475,6 +476,7 @@ spec:
   resources:
     requests:
       storage: "8Gi"
+  storageClass: px-db
 ---
 # Source: prometheus/templates/alertmanager/clusterrole.yaml
 apiVersion: rbac.authorization.k8s.io/v1
