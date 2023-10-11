@@ -16,3 +16,9 @@ manifests:
   - path: portworx/px-operator.yaml
     targets: ['prod-portworx','stage-portworx']
 
+strategies:
+  rolling:
+    canary:
+      steps:
+        - setWeight:
+            weight: 100
