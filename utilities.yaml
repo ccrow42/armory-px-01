@@ -3,14 +3,6 @@ kind: kubernetes
 application: demo-utilities
 
 targets:
-  prod-portworx:
-    account: cluster01
-    namespace: portworx
-    strategy: rolling
-  stage-portworx:
-    account: cluster01
-    namespace: portworx
-    strategy: rolling
   prod-cmd-hook:
     account: cluster01
     namespace: armory-rna
