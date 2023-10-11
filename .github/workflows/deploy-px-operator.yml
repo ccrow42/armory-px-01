@@ -1,9 +1,7 @@
 name: Deploy px-operator
-
 on:
   push:
-    push:
-      branches: [ "main" ]
+    branches: [ "main" ]
     paths:
       - 'portworx/px-namespace.yaml' # Replace with the path to the file or directory you want to monitor
       - 'portworx/px-operator.yaml'
