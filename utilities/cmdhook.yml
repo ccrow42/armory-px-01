@@ -54,4 +54,4 @@ spec:
   selector:
     app: cmd-hook
   type: ClusterIP
-# update 02
+# update 03
