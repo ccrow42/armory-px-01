@@ -78,7 +78,9 @@ You can manually deploy by applying the appropriate manifest to the appropriate 
 
 ### Change the default storage class
 
+kubectl patch storageclass gp2 -p '{"metadata": {"annotations":{"storageclass.kubernetes.io/is-default-class":"false"}}}'
 
+`kubectl patch storageclass px-db -p '{"metadata": {"annotations":{"storageclass.kubernetes.io/is-default-class":"true"}}}'`
 
 ### Build service accounts
 
