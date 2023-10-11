@@ -23,6 +23,7 @@ spec:
     enabled: true
     args:
       webhook-controller: "true"
+      admin-namespace: portworx
   autopilot:
     enabled: true
   runtimeOptions:

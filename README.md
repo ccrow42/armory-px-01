@@ -74,3 +74,62 @@ Be sure to run the above on both clusters.
 Deploying Portworx can be done by modifying the storagecluster01.yaml (this will deploy to both clusters)
 
 You can manually deploy by applying the appropriate manifest to the appropriate cluster.
+
+### Build service accounts
+
+Apply the serviceaccount,secret,clusterrole binding to both clusters.
+
+`kubectl apply -f setup/svcAccount.yaml`
+
+edit the create-migration-config-esk01.sh and create-migration-config-eks02.sh and update the server variable.
+
+Export the configuration files:
+
+NOTE: Be sure you are in the correct context!
+
+./setup/create-migration-config-esk01.sh > ~/eks01.config
+
+
+### Pair the cluster
+
+Run the following (substituting your access and secret key):
+
+`storkctl create clusterpair stage \
+--dest-kube-file ~/eks02.config \
+--src-kube-file ~/eks01.config \
+--dest-ep <PortworxAPI>:9001 \
+--src-ep <PortworxAPI>:9001 \
+--namespace portworx \
+--provider s3 \
+--s3-endpoint s3.amazonaws.com \
+--s3-access-key **************** \
+--s3-secret-key **************** \
+--s3-region us-west-2 \
+--unidirectional`
+
+### Set up the initial PXBBQ application
+
+Run the following against cluster01
+
+`kubectl apply -f pxbbq-demo/namespace.yml`
+`kubectl apply -f pxbbq-demo/mongodb-pvc.yaml`
+`kubectl apply -f pxbbq-demo/mongodb.yaml`
+`kubectl apply -f pxbbq-demo/pxbbq.yaml`
+
+I then applied the migration script to get the initial pvc over:
+
+`kubectl apply -f pxbbq-demo/migrate.yaml`
+
+Next, ensure that PXBBQ is running by connecting to the service IP
+
+### Setting up the integration tests
+
+The integration tests contained in the pxbbq.yaml deployment file reference the github repository. Update it (should be line 126)
+
+## Running the Demo
+
+### Ensure that you can connect to both clusters
+
+### Change the mongodb version to 6.0.2
+
+This is expected to fail
