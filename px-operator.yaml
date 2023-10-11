@@ -8,7 +8,7 @@ targets:
     namespace: portworx
     strategy: rolling
   stage-portworx:
-    account: cluster01
+    account: cluster02
     namespace: portworx
     strategy: rolling
 
