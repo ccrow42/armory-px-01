@@ -43,3 +43,7 @@ Install the agents using the demo01 tenant to the demo01 environments.
 `a1 agent create --context-name ccrow@ccrow-uswest2-eks01-prod.us-west-2.eksctl.io --namespace armory-rna --name cluster01`
 
 **The above doesn't seem to work, so I manually added the agents**
+
+### Populate Armory Secrets in Github
+
+Generate a new set of client credentials
