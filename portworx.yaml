@@ -13,10 +13,6 @@ targets:
     strategy: rolling
 
 manifests:
-  - path: portworx/px-operator.yaml
-    targets: ['prod-portworx','stage-portworx']
-  - path: portworx/px-namespace.yaml
-    targets: ['prod-portworx','stage-portworx']
   - path: portworx/storagecluster01.yaml
     targets: ['prod-portworx']
   - path: portworx/storagecluster02.yaml
