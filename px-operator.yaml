@@ -1,6 +1,6 @@
 version: v1
 kind: kubernetes
-application: demo-utilities
+application: px-operator
 
 targets:
   prod-portworx:
