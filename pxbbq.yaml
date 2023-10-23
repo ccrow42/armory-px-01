@@ -48,14 +48,14 @@ strategies:
   rollingUpdate:
     canary:
       steps:
+        - setWeight:
+            weight: 100
         - exposeServices:
             services:
               - pxbbq-svc
             ttl:
               duration: 60
               unit: MINUTES
-        - setWeight:
-            weight: 100
   prod-canary:
     canary:
       steps:
