@@ -133,6 +133,17 @@ Next, ensure that PXBBQ is running by connecting to the service IP
 
 The integration tests contained in the pxbbq.yaml deployment file reference the github repository. Update it (should be line 126)
 
+### Set up prometheus integration:
+
+Config in armory:
+
+`prometheus config:
+base url: http://prometheus-server.prometheus:9090/
+remote network agent: the one for the prod account
+name: prod-prometheus
+type: prometheus
+authentication type: none`
+
 ## Running the Demo
 
 ### Prerequisites
