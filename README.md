@@ -135,8 +135,26 @@ The integration tests contained in the pxbbq.yaml deployment file reference the 
 
 ## Running the Demo
 
-### Ensure that you can connect to both clusters
+### Prerequisites
 
-### Change the mongodb version to 6.0.2
+- Ensure you can connect to both clusters (Chris should have generated service accounts and configurations)
+- Bring up the Armory Portworx Deck
+- Log in to Github.com/ccrow42/armory-px-demo01
+- Log in to Armory Cloud console at https://console.cloud.armory.io/
 
-This is expected to fail
+### Running the Demo
+
+The demo is fairly simple to run.
+
+- First, run through the slide deck to talk about what we are doing
+- Upgrade Mongo to 6.0.2
+- Explain why it failed
+- Upgrade Mongo to 6.0.3
+- Explain the Process
+
+
+### Todo
+
+- Upgrade Porx BBQ
+- Add a title
+- 
