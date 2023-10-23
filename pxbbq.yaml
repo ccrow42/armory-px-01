@@ -70,8 +70,8 @@ strategies:
             numberOfJudgmentRuns: 1
             rollForwardMode: manual
             queries:
-            - avgCPUUsage-pass
-            - mongodb-warnings
+#            - avgCPUUsage-pass
+#            - mongodb-warnings
         - setWeight:
             weight: 100
         - analysis:
@@ -80,7 +80,7 @@ strategies:
             rollBackMode: manual
             numberOfJudgmentRuns: 1
             queries:
-            - avgCPUUsage-pass
+#            - avgCPUUsage-pass
             #- mongodb-warnings-fail # mongobd-warning-fail 
             
 webhooks: 
