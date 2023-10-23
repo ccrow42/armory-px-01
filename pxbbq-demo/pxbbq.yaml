@@ -17,9 +17,6 @@ spec:
       labels:                    
         app: pxbbq-web
     spec: 
-      readinessProbe:
-        httpGet:
-          port: 8080
       containers:
       - name: pxbbq
         image: eshanks16/pxbbq:v3.3.1 #latest
@@ -39,6 +36,9 @@ spec:
         imagePullPolicy: Always
         ports:
           - containerPort: 8080    
+        readinessProbe:
+          httpGet:
+            port: 8080
 ---
 apiVersion: v1
 kind: Service
