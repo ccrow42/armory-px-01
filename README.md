@@ -150,11 +150,16 @@ The demo is fairly simple to run.
 - Upgrade Mongo to 6.0.2
 - Explain why it failed
 - Upgrade Mongo to 6.0.3
-- Explain the Process
+- Explain the Process by showing the pxbbq.yaml Armory deployment file
 
 
 ### Todo
 
 - Upgrade Porx BBQ
-- Add a title
-- 
+- Add a title slide (and booth locations)
+- Get QR Code
+- Fix SVC Proxy
+- Fix Prometheus
+- Add labels to deck
+- Schedule one more check-in
+- Post recording
