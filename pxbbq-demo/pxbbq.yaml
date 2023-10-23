@@ -15,7 +15,10 @@ spec:
     metadata:
       labels:                    
         app: pxbbq-web
-    spec:                        
+    spec: 
+      readinessProbe:
+        httpGet:
+          port: 8080
       containers:
       - name: pxbbq
         image: eshanks16/pxbbq:v3.3.1 #latest
