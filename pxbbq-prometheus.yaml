@@ -64,9 +64,24 @@ strategies:
               - pxbbq-svc
         - setWeight:
             weight: 50
+        - analysis:
+            interval: 10
+            units: seconds
+            numberOfJudgmentRuns: 1
+            rollForwardMode: manual
+            queries:
+            - avgCPUUsage-pass
+            - mongodb-warnings
         - setWeight:
             weight: 100
-
+        - analysis:
+            interval: 10
+            units: seconds
+            rollBackMode: manual
+            numberOfJudgmentRuns: 1
+            queries:
+            - avgCPUUsage-pass
+            #- mongodb-warnings-fail # mongobd-warning-fail 
             
 webhooks: 
   - agentIdentifier: cluster01
