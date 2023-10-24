@@ -166,10 +166,8 @@ The demo is fairly simple to run.
 
 ### Todo
 
-- Upgrade Porx BBQ
 - Add a title slide (and booth locations)
 - Get QR Code
-- Fix SVC Proxy
 - Fix Prometheus
 - Add labels to deck
 - Schedule one more check-in
