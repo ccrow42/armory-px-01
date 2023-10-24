@@ -59,11 +59,6 @@ Create a new github token that has access to repos, workflows and packages. Popu
 
 Sorry for the errant capital letter, too late to change it now!
 
-### Deploy the Armory Utilities
-
-This can be done by modifying anything inside the utilities directory, or you can simply deploy the manifests manually as specified in the utilities.yaml deployment file in the root of the repo
-
-
 ### Deploy PX-operator and portworx
 
 I have had the best result deploying the operator manually with:
@@ -81,6 +76,10 @@ You can manually deploy by applying the appropriate manifest to the appropriate 
 kubectl patch storageclass gp2 -p '{"metadata": {"annotations":{"storageclass.kubernetes.io/is-default-class":"false"}}}'
 
 `kubectl patch storageclass px-db -p '{"metadata": {"annotations":{"storageclass.kubernetes.io/is-default-class":"true"}}}'`
+
+### Deploy the Armory Utilities
+
+This can be done by modifying anything inside the utilities directory, or you can simply deploy the manifests manually as specified in the utilities.yaml deployment file in the root of the repo
 
 ### Build service accounts
 
