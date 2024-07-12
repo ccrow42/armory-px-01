@@ -2,4 +2,4 @@ databaseChangeLog:
 - include:
     file: schema.yml
 - include:
-    file: referencedata-changelog.yml
+    file: referencedata.yml
