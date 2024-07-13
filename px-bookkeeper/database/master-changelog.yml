@@ -1,5 +1,5 @@
 databaseChangeLog:
 - include:
     file: schema.yml
-- include:
-    file: referencedata.yml
+- includeALL:
+    path: referencedata
