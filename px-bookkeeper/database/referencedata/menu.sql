@@ -18,3 +18,7 @@ insert into menu(Item) VALUES ('Chicken');
 insert into menu(Item) VALUES ('Ostrich');
 insert into menu(Item) VALUES ('Rabbit');
 --rollback delete from menu where Item='Ostrich' OR Item='Rabbit';
+--changeset satwell:menu-5
+--mandatory menu update from PETA.
+delete from menu where Item='Rabbit';
+--rollback insert into menu(Item) VALUES ('Rabbit');
