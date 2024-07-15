@@ -87,7 +87,6 @@ databaseChangeLog:
               - column:
                   name: Name
                   type: nvarchar(50)
-                  defaultValueComputed: Location
               - column:
                   name: State
                   type: nvarchar(50)
