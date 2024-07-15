@@ -37,6 +37,8 @@ databaseChangeLog:
     id: 1720826251843-2
     author: stephenatwell (generated)
     changes:
+    -  sql:
+          sql:  IF OBJECT_ID('dbo.Menu', 'U') IS NOT NULL DROP TABLE dbo.Menu;
     - createTable:
         columns:
         - column:
@@ -57,6 +59,8 @@ databaseChangeLog:
     id: 1720826251843-3
     author: stephenatwell (generated)
     changes:
+    -  sql:
+          sql:  IF OBJECT_ID('dbo.Warehouses', 'U') IS NOT NULL DROP TABLE dbo.Warehouses;
     - createTable:
         columns:
         - column:
