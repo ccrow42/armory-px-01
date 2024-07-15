@@ -14,3 +14,7 @@ insert into menu(Item) VALUES ('Charcoal');
 --changeset satwell:menu-3
 insert into menu(Item) VALUES ('Chicken');
 --rollback delete from menu where Item='Chicken';
+--changeset satwell:menu-4
+insert into menu(Item) VALUES ('Ostrich');
+insert into menu(Item) VALUES ('Rabbit');
+--rollback delete from menu where Item='Ostrich' OR Item='Rabbit';
