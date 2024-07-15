@@ -1,7 +1,8 @@
 --liquibase formatted sql
 --warehouse list now comes from master changelog, not the old refernce data sql files.
 --changeset satwell:Inventory-0
-delete from Warehouses;
+delete from Inventory;
+--rollback delete from Inventory
 --changeset satwell:Inventory-1
 insert into Inventory(Name,Quantity,WarehouseName,DateAdded) VALUES ('Mushrooms',40,'Chicago','2020-04-13 10:33:00.000');
 insert into Inventory(Name,Quantity,WarehouseName,DateAdded) VALUES ('Porx',25,'Seattle','2020-04-14 09:29:00.000');
