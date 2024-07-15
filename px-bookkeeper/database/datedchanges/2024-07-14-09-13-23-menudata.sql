@@ -1,6 +1,7 @@
 --liquibase formatted sql
 --changeset satwell:menu-0
 delete from menu;
+--rollback not required
 --changeset satwell:menu-pork-1
 insert into menu(Item) VALUES ('Brisket');
 insert into menu(Item) VALUES ('Pork Shoulder');
