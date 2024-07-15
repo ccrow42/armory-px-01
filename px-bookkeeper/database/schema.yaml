@@ -3,6 +3,8 @@ databaseChangeLog:
     id: 1720826251843-1
     author: stephenatwell (generated)
     changes:
+    -  sql:
+          sql:  IF OBJECT_ID('dbo.Inventory', 'U') IS NOT NULL DROP TABLE dbo.Inventory;
     - createTable:
         columns:
         - column:
