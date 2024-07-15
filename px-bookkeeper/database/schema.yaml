@@ -147,6 +147,6 @@ databaseChangeLog:
               COMMIT TRANSACTION; 
     rollback:
     - sql:
-            sql: IF OBJECT_ID('dbo.trg_Warehouses_Location_Update', 'TR') IS NOT NULL DROP TRIGGER dbo.update_warehouse_name;
+            sql: IF OBJECT_ID('dbo.trg_Warehouses_Location_Update', 'TR') IS NOT NULL DROP TRIGGER dbo.trg_Warehouses_Location_Update;
 
 
