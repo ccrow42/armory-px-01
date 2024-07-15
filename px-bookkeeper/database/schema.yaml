@@ -97,6 +97,8 @@ databaseChangeLog:
 - changeSet:
     id: refactor-1-data-migrate
     author: stephenatwell
+    # disable transactions so that we can do small/incremental locks during the data copy.
+    runInTransaction:  false
     changes:
     - sql:
             sql: |
@@ -133,7 +135,7 @@ databaseChangeLog:
               BEGIN
               
                   -- Update the Name column in small batches to minimize lock time
-                  UPDATE TOP (1000) Warehouses
+                  UPDATE TOP (2) Warehouses
                   SET 
                       Name = Location
                   WHERE 
