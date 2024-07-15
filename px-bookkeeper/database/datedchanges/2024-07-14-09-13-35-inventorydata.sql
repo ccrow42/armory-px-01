@@ -63,3 +63,4 @@ INSERT INTO Inventory (Name, Quantity, WarehouseName, DateAdded) VALUES
 ('Porx', -20, 'Boston', '2024-06-08 08:35:00.000'),
 ('Cauliflower', 25, 'Boston', '2024-06-09 12:02:00.000'),
 ('Brisket', 20, 'Chicago', '2024-07-11 21:00:29.000');
+--rollback delete from Inventory
