@@ -1,8 +1,18 @@
 databaseChangeLog:      
 - changeSet:
+    id: drop-primary
+    author: stephenatwell
+    ignore: true
+    changes:
+    -  dropPrimaryKey:
+        constraintName: PK__Warehous__3214EC27E991EA03
+        dropIndex: true
+        tableName:  Warehouses
+    rollback: []  
+- changeSet:
     id: refactor-1
     author: stephenatwell
-    ignore: false
+    ignore: true
     changes:
     - addColumn:
             tableName: Warehouses
@@ -17,10 +27,30 @@ databaseChangeLog:
             columnName: Location
             tableName: Warehouses
             defaultValueComputed: newId()   
+    -  addNotNullConstraint:
+        columnName:  Location
+        columnDataType: nvarchar(50)
+        constraintName:  location_non_nullable
+        defaultNullValue:  newId()
+        tableName:  Warehouses
+        validate:  true
+    - addPrimaryKey:
+        clustered:  false
+        columnNames:  Location
+        constraintName:  pk_location
+        tableName:  Warehouses
+        validate:  true
+    - addForeignKeyConstraint:
+            basetableName: Inventory
+            baseColumnNames: WarehouseName
+            constraintName:  fk_WarehouseName
+            referencedTableName: Warehouses
+            referencedColumnNames: Location
+            validate:  true
 - changeSet:
     id: refactor-1-data-migrate
     author: stephenatwell
-    ignore: false
+    ignore: true
     # disable transactions so that we can do small/incremental locks during the data copy.
     runInTransaction:  false
     changes:
@@ -77,7 +107,7 @@ databaseChangeLog:
 - changeSet:
     id: boston-georgia
     author: stephenatwell
-    ignore: false
+    ignore: true
     changes:
     - insert:
             tableName: Warehouses
@@ -88,39 +118,4 @@ databaseChangeLog:
               - column:
                   name: State
                   type: GA
-- changeSet:
-    id: drop-primary
-    author: stephenatwell
-    ignore: false
-    changes:
-    -  dropPrimaryKey:
-        constraintName: PK__Warehous__3214EC27E991EA03
-        dropIndex: true
-        tableName:  Warehouses
-    rollback: []
-- changeSet:
-    id: fk
-    author: stephenatwell
-    ignore: false
-    changes:
-    -  addNotNullConstraint:
-        columnName:  Location
-        columnDataType: nvarchar(50)
-        constraintName:  location_non_nullable
-        defaultNullValue:  newId()
-        tableName:  Warehouses
-        validate:  true
-    - addPrimaryKey:
-        clustered:  false
-        columnNames:  Location
-        constraintName:  pk_location
-        tableName:  Warehouses
-        validate:  true
-    - addForeignKeyConstraint:
-            basetableName: Inventory
-            baseColumnNames: WarehouseName
-            constraintName:  fk_WarehouseName
-            referencedTableName: Warehouses
-            referencedColumnNames: Location
-            validate:  true
-                  
+
