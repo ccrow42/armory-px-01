@@ -88,3 +88,18 @@ databaseChangeLog:
               - column:
                   name: State
                   type: GA
+- changeSet:
+    id: fk
+    author: stephenatwell
+    ignore: false
+    changes:
+    - insert:
+            tableName: Inventory
+            baseColumnNames: WarehouseName
+            constraintName:  fk_WarehouseName
+            referencedTableName: Warehouses
+            referencedColumnNames: Location
+            deferrable:  true
+            initiallyDeferred:  true
+            validate:  true
+                  
