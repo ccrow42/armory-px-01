@@ -93,7 +93,7 @@ databaseChangeLog:
     author: stephenatwell
     ignore: false
     changes:
-    - insert:
+    - addForeignKeyConstraint:
             tableName: Inventory
             baseColumnNames: WarehouseName
             constraintName:  fk_WarehouseName
