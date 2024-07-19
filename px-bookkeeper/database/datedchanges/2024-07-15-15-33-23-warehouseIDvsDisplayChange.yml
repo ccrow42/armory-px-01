@@ -94,7 +94,7 @@ databaseChangeLog:
     ignore: false
     changes:
     - addForeignKeyConstraint:
-            tableName: Inventory
+            basetableName: Inventory
             baseColumnNames: WarehouseName
             constraintName:  fk_WarehouseName
             referencedTableName: Warehouses
