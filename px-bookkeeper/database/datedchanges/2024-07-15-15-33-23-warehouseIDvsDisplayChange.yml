@@ -99,7 +99,5 @@ databaseChangeLog:
             constraintName:  fk_WarehouseName
             referencedTableName: Warehouses
             referencedColumnNames: Location
-            deferrable:  true
-            initiallyDeferred:  true
             validate:  true
                   
