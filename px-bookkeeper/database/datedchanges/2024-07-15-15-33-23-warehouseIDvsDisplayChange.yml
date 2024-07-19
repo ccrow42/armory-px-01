@@ -93,6 +93,12 @@ databaseChangeLog:
     author: stephenatwell
     ignore: false
     changes:
+    -  addNotNullConstraint:
+        columnName:  Location
+        constraintName:  location_non_nullable
+        defaultNullValue:  newId()
+        tableName:  Warehouses
+        validate:  true
     -  dropPrimaryKey:
         constraintName: PK__Warehous__3214EC27E991EA03
         dropIndex: true
