@@ -95,6 +95,7 @@ databaseChangeLog:
     changes:
     -  addNotNullConstraint:
         columnName:  Location
+        columnDataType: nvarchar(50)
         constraintName:  location_non_nullable
         defaultNullValue:  newId()
         tableName:  Warehouses
