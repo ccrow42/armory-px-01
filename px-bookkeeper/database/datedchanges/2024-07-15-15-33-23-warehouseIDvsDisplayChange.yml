@@ -89,6 +89,16 @@ databaseChangeLog:
                   name: State
                   type: GA
 - changeSet:
+    id: drop-primary
+    author: stephenatwell
+    ignore: false
+    changes:
+    -  dropPrimaryKey:
+        constraintName: PK__Warehous__3214EC27E991EA03
+        dropIndex: true
+        tableName:  Warehouses
+    rollback: []
+- changeSet:
     id: fk
     author: stephenatwell
     ignore: false
@@ -100,10 +110,6 @@ databaseChangeLog:
         defaultNullValue:  newId()
         tableName:  Warehouses
         validate:  true
-    -  dropPrimaryKey:
-        constraintName: PK__Warehous__3214EC27E991EA03
-        dropIndex: true
-        tableName:  Warehouses
     - addPrimaryKey:
         clustered:  false
         columnNames:  Location
