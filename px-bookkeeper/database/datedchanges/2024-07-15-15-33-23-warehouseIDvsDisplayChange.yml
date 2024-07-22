@@ -63,20 +63,20 @@ databaseChangeLog:
               BEGIN
                   SET NOCOUNT ON;
                   
-                  IF EXISTS (SELECT * FROM Inserted)
+                  IF EXISTS (SELECT * FROM Inserted WHERE City IS NULL)
                   BEGIN
                       UPDATE Warehouses
                       SET City = i.Location
                       FROM Inserted i
-                      WHERE Warehouses.ID = i.ID AND i.City IS NULL;
+                      WHERE Warehouses.ID = i.ID;
                   END
                   
-                  IF EXISTS (SELECT * FROM Deleted)
+                  IF EXISTS (SELECT * FROM Deleted WHERE City IS NULL)
                   BEGIN
                       UPDATE Warehouses
                       SET City = i.Location
                       FROM Inserted i, Deleted d
-                      WHERE Warehouses.ID = d.ID AND i.ID = d.ID AND i.City IS NULL AND d.City IS NULL;
+                      WHERE Warehouses.ID = d.ID AND i.ID = d.ID;
                   END
               END;  
     - sql:
