@@ -70,14 +70,6 @@ databaseChangeLog:
                       FROM Inserted i
                       WHERE Warehouses.ID = i.ID;
                   END
-                  
-                  IF EXISTS (SELECT * FROM Deleted WHERE City IS NULL)
-                  BEGIN
-                      UPDATE Warehouses
-                      SET City = i.Location
-                      FROM Inserted i, Deleted d
-                      WHERE Warehouses.ID = d.ID AND i.ID = d.ID;
-                  END
               END;  
     - sql:
             sql: |
@@ -122,7 +114,7 @@ databaseChangeLog:
                   value: Boston
               - column:
                   name: State
-                  type: GA
+                  value: GA
     
     rollback:
     - delete:
