@@ -112,7 +112,7 @@ databaseChangeLog:
        - onFail: MARK_RAN
        - sqlCheck:
           expectedResult: 0
-          sql: SELECT COUNT(*) FROM Warehouses WHERE City="Boston" AND State="GA"
+          sql: SELECT COUNT(*) FROM Warehouses WHERE City='Boston' AND State='GA'
     changes:
     - insert:
             tableName: Warehouses
