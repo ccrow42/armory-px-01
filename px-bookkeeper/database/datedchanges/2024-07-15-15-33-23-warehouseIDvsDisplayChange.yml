@@ -8,7 +8,11 @@ databaseChangeLog:
         constraintName: PK__Warehous__3214EC27E991EA03
         dropIndex: true
         tableName:  Warehouses
-    rollback: []  
+    rollback: 
+    -  addPrimaryKey:
+        constraintName: PK__Warehous__3214EC27E991EA03
+        columnNames: ID
+        tableName:  Warehouses  
 - changeSet:
     id: refactor-1
     author: stephenatwell
