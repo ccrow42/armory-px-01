@@ -68,7 +68,7 @@ databaseChangeLog:
                       UPDATE Warehouses
                       SET City = i.Location
                       FROM Inserted i
-                      WHERE Warehouses.ID = i.ID WHERE i.City IS NULL;
+                      WHERE Warehouses.ID = i.ID AND i.City IS NULL;
                   END
                   
                   IF EXISTS (SELECT * FROM Deleted)
@@ -108,6 +108,11 @@ databaseChangeLog:
     id: boston-georgia
     author: stephenatwell
     ignore: false
+    preConditions:
+       - onFail: MARK_RAN
+       - sqlCheck:
+          expectedResult: 0
+          sql: SELECT COUNT(*) FROM Warehouses WHERE City="Boston" AND State="GA"
     changes:
     - insert:
             tableName: Warehouses
@@ -119,5 +124,8 @@ databaseChangeLog:
                   name: State
                   type: GA
     
-    rollback: []
+    rollback:
+    - delete:
+            tableName: Warehouses
+            where: City='Boston' AND State='GA'
 
