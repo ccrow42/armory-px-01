@@ -1,5 +1,4 @@
 --liquibase formatted sql
---increase data volume...
 --changeset satwell:Inventory-2
 insert into Inventory(Name,Quantity,WarehouseName,DateAdded) VALUES ('Mushrooms',40,'Chicago','2020-04-13 10:32:01.000');
 insert into Inventory(Name,Quantity,WarehouseName,DateAdded) VALUES ('Porx',25,'Seattle','2020-04-13 10:32:01.000');
